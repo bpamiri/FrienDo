@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+    
+        <title>Contact Example</title>
+        <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+        <script type="text/javascript" charset="utf-8">
+
+
+            // Wait for device API libraries to load
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            // device APIs are available
+
+            function onDeviceReady() {
+                
+                var options = new ContactFindOptions();
+                options.multiple = true;
+                var fields = ["displayName","emails"];
+                navigator.contacts.find(fields, onSuccess, onError, options, {multiple:true});
+            }
+
+            // onSuccess: Get a snapshot of the current contacts
+
+            function onSuccess(contacts) {
+                // alert(contacts.length);
+                var tmp = [];
+                for (var i = 0; i < contacts.length; i++) {
+                    if(contacts[i].emails)
+                        tmp.push(contacts[i].displayName + " " + contacts[i].emails[0].value);
+                }
+                populate("contacts",tmp);
+                
+                document.getElementById("contacts").innerHTML += "<input type='submit' value = 'Add Friends' onclick='test()'>"
+            }
+
+            // onError: Failed to get the contacts
+
+            function onError(contactError) {
+                alert('onError!');
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1>Example</h1>
+        <p>All Contacts</p>
+        <form id='contacts'></form>
+    </body>
+
+    <script type="text/javascript">
+    function populate(slct2,optionArray){
+
+    var s2 = document.getElementById(slct2);
+    s2.innerHTML = "";
+
+    //option array to be filled dynamically
+    //var optionArray = ["Subcat1","Subcat1.1","Subcat1.2"];
+
+    for (var option in optionArray) {
+            if (optionArray.hasOwnProperty(option)) {
+                var pair = optionArray[option];
+                var checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.name = pair;
+                checkbox.value = pair;
+                s2.appendChild(checkbox);
+        
+                var label = document.createElement('label')
+                label.htmlFor = pair;
+                label.appendChild(document.createTextNode(pair));
+
+                s2.appendChild(label);
+                s2.appendChild(document.createElement("br"));    
+            }
+        }
+    }
+
+    function test() {
+
+    var cboxes = document.getElementById('contacts');
+    var len = cboxes.length;
+    alert(len);
+    for (var i=0; i<len; i++) {
+        if(cboxes[i].checked)
+        alert(i + (cboxes[i].checked?' checked ':' unchecked ') + cboxes[i].value);
+    }
+
+    }
+    </script>
+            
+</html>
