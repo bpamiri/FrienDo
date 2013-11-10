@@ -2,6 +2,7 @@
 	
 		<head>
 			<script src="js/jquery.min.js"></script>
+			<link href="css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
     <script src="js/underscore-1.1.6.js"></script>
     <script src="js/parse.min.js"></script>
     <script src="js/jquery.min.js"></script>
@@ -31,7 +32,7 @@ function send_todo()
 
   var employees = new EmployeeCollection(
       [
-      {"todo": mes , "User" : user}
+      {"todo": mes , "User" : user, "numval": 0}
       ]
   );
 
@@ -44,18 +45,29 @@ function send_todo()
 			
 		</head>
 	<body>
+
+<div id ='n2b2' style='background: gray; padding: 10px; margin-bottom: 40px;'>
+<a href="todo.html">todo</a>
+<a href="view_todo.html">All todo</a>
+<a href="All_broad.html">All_broad</a>
+<a href="broadcast.html">broadcast</a>
+</div>
+		
+		<h2>Create a todo item</h2>
 		<script type="text/javascript">
 			$( document ).ready(function() {
     $("#todo-form").submit(function(e){
       e.preventDefault();
       send_todo();
+    //window.location.assign('todo.html');
     });
-});
+    });
 			</script>
 	<form id="todo-form" class="todo-form" >
+<div class='form-group'>
 		<input type="text" id="textfield" name="ttext">
 		<input type="submit" value="Create Todo List" onclick="submitted()" >
-	</form>
+</div>	</form>
 
 	
 	<script type="text/javascript">

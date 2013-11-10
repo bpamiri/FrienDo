@@ -50,6 +50,13 @@
     </head>
 
     <body>
+
+<div id ='n2b2' style='background: gray; padding: 10px; margin-bottom: 40px;'>
+<a href="todo.html">todo</a>
+<a href="view_todo.html">All todo</a>
+<a href="All_broad.html">All_broad</a>
+<a href="broadcast.html">broadcast</a>
+</div>
         <h1>Example</h1>
         <p>All Contacts</p>
         <form id='contacts'></form>
@@ -87,10 +94,10 @@
 
     var cboxes = document.getElementById('contacts');
     var len = cboxes.length;
-    alert(len);
+    
     for (var i=0; i<len; i++) {
         if(cboxes[i].checked)
-        alert(i + (cboxes[i].checked?' checked ':' unchecked ') + cboxes[i].value);
+     //   alert(i + (cboxes[i].checked?' checked ':' unchecked ') + cboxes[i].value);
     }
 
     }

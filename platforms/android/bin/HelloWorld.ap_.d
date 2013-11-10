@@ -32,7 +32,7 @@
 /home/john/angelhack/versioncheck/platforms/android/assets/www/broadcast.html \
 /home/john/angelhack/versioncheck/platforms/android/assets/www/view_todo.html \
 /home/john/angelhack/versioncheck/platforms/android/assets/www/js \
-/home/john/angelhack/versioncheck/platforms/android/assets/www/view_todo \
+/home/john/angelhack/versioncheck/platforms/android/assets/www/fonts \
 /home/john/angelhack/versioncheck/platforms/android/assets/www/home.html \
 /home/john/angelhack/versioncheck/platforms/android/assets/www/plugins/org.apache.cordova.contacts \
 /home/john/angelhack/versioncheck/platforms/android/assets/www/plugins/org.apache.cordova.contacts/www \
@@ -47,6 +47,7 @@
 /home/john/angelhack/versioncheck/platforms/android/assets/www/images/spinner.gif \
 /home/john/angelhack/versioncheck/platforms/android/assets/www/images/bg.png \
 /home/john/angelhack/versioncheck/platforms/android/assets/www/images/destroy.png \
+/home/john/angelhack/versioncheck/platforms/android/assets/www/css/bootstrap.min.css \
 /home/john/angelhack/versioncheck/platforms/android/assets/www/css/todos.css \
 /home/john/angelhack/versioncheck/platforms/android/assets/www/css/slide.css \
 /home/john/angelhack/versioncheck/platforms/android/assets/www/css/index.css \
@@ -148,4 +149,8 @@
 /home/john/angelhack/versioncheck/platforms/android/assets/www/js/js/underscore-1.1.6.js \
 /home/john/angelhack/versioncheck/platforms/android/assets/www/js/js/todos.js \
 /home/john/angelhack/versioncheck/platforms/android/assets/www/js/js/jquery.min.js \
+/home/john/angelhack/versioncheck/platforms/android/assets/www/fonts/glyphicons-halflings-regular.svg \
+/home/john/angelhack/versioncheck/platforms/android/assets/www/fonts/glyphicons-halflings-regular.eot \
+/home/john/angelhack/versioncheck/platforms/android/assets/www/fonts/glyphicons-halflings-regular.woff \
+/home/john/angelhack/versioncheck/platforms/android/assets/www/fonts/glyphicons-halflings-regular.ttf \
 /home/john/angelhack/versioncheck/platforms/android/bin/AndroidManifest.xml \
