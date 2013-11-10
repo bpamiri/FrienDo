@@ -1,20 +1,22 @@
 <html>
 <head>
 <script src = "js/jquery.min.js"></script>
+<link href="css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="try"></div>
 <script type="text/javascript">
 var user = localStorage.getItem('username');
 var pass = localStorage.getItem('password');
-$("#try").append(user + "::" + pass);
+$("#try").append(user);
 </script>
-<a href="slide.html">Slide</a>
-<a href="todo.html">todo</a>
-<a href="view_todo.html">All todo</a>
-<a href="All_broad.html">All_broad</a>
-<a href="broadcast.html">broadcast</a>
-
+<ul>
+<li><a href="slide.html">Slide</a></li>
+<li><a href="todo.html">todo</a></li>
+<li><a href="view_todo.html">All todo</a></li>
+<li><a href="All_broad.html">All_broad</a></li>
+<li><a href="broadcast.html">broadcast</a></li>
+</ul>
 
 </body>
 

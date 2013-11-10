@@ -1,19 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="js/jquery.min.js"></script>
-    <script src="js/underscore-1.1.6.js"></script>
-    <script src="js/parse.min.js"></script>
-    <script src="js/new2.js"></script>
+<link href="css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
+<script src="js/jquery.min.js"></script>
+<script src="js/underscore-1.1.6.js"></script>
+<script src="js/parse.min.js"></script>
+<script src="js/new2.js"></script>
 </head>
 <body>
-          <ul id = 'blist-todo'>
-            
-          </ul>
+<form method = 'post' name = 'todo-list' id = 'todo-list'>
+<div id = 'blist-todo'></div>
+<input type = 'submit' value = 'checkout' />
+</form>
+
+</div>
 </body>
 <script>
 $( document ).ready(function() {
-  all_todo();
-});
+		all_todo();
+		});
 </script>
 </html>
