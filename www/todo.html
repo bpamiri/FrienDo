@@ -50,13 +50,15 @@ function send_todo()
     $("#todo-form").submit(function(e){
       e.preventDefault();
       send_todo();
+    //window.location.assign('todo.html');
     });
-});
+    });
 			</script>
 	<form id="todo-form" class="todo-form" >
+<div class='form-group'>
 		<input type="text" id="textfield" name="ttext">
 		<input type="submit" value="Create Todo List" onclick="submitted()" >
-	</form>
+</div>	</form>
 
 	
 	<script type="text/javascript">

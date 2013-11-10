@@ -113,7 +113,7 @@ function todo_validate()
 				});
 			}
 			});
-	window.location.assign('view_todo.html');
+//	window.location.assign('view_todo.html');
 }
 
 $( document ).ready(function() {
