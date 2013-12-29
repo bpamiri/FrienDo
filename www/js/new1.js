@@ -22,34 +22,38 @@ function signup_validate()
       promisesPhase1.push(employee.save());
   });
   console.log(promisesPhase1);
-  //alert(promisesPhase1);
+//  alert(promisesPhase1);
 } 
 function login_validate()
 {
     var uname = document.forms["login-form"]["username"].value;
     var passwd = document.forms["login-form"]["password"].value;
-    console.log("uname, passwd");
+    console.log(uname, passwd);
     var query = new Parse.Query("Users");
     query.equalTo("Name",uname);
     query.equalTo("passwd",passwd);
     query.find({success: function(results) {
     console.log(results);
     
-    window.localStorage["username"] = uname;
-    window.localStorage["password"] = passwd; 
+    window.localStorage["username"] = results[0]['_serverData']['Name'];
+    window.localStorage["password"] = results[0]['_serverData']['passwd']; 
     window.location.assign("submit.html");
     }});
 }
-/*$( document ).ready(function() {
+
+$( document ).ready(function() {
     $("#signup-form").submit(function(e){
       e.preventDefault();
-      signup_validate();
+      var u = document.forms["signup-form"]["username"].value;
+      var p = document.forms["signup-form"]["password"].value;
+      var e = document.forms["signup-form"]["email"].value;
+      if(u!='' && p!='' && e!='')
+      {
+        signup_validate();
+      }
     });
-    $("#login-form").submit(function(e){
-      e.preventDefault();
-      login_validate();
-    });
-});*/
+});
+
 //function deviceReady() {
 $( document ).ready(function() 
 {
@@ -64,5 +68,28 @@ $( document ).ready(function()
     {  
       login_validate();
     }
+  });
+});
+
+function logout()
+{
+    window.localStorage["username"]=null;
+    window.localStorage["password"]=null;
+
+  //  var user = localStorage.getItem('username');
+  //  var pass = localStorage.getItem('password');
+
+  //  alert(user + " : " + pass);
+}
+
+$( document ).ready(function() 
+{
+  $("#submit-form").on("submit",function(e) 
+  {
+    e.preventDefault();
+    logout();
+    //disable the button so we can't resubmit while we wait
+    //$("#login-submit",this).attr("disabled","disabled");
+    window.location.replace("index.html");
   });
 });

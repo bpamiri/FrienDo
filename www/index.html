@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>Parse JavaScript Todo App</title>
     <!-- <link href="css/todos.css" media="all" rel="stylesheet" type="text/css"/> -->
-    <link href="css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
-    <link href="css/new.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="css/bootstrap.css" media="all" rel="stylesheet" type="text/css"/>
+    
     <script src="js/jquery.min.js"></script>
     <script src="js/underscore-1.1.6.js"></script>
     <script src="js/parse.min.js"></script>
@@ -16,17 +16,16 @@
   </head>
 
   <body>
+<style type="text/css">
+body
+{
+background-color: #E4E4E4;
+}
+</style>
 
     <!-- Todo App Interface -->
 
-    <div id="todoapp">
-      <div class="title">
-        <h1>Friendo</h1>
-      </div>
-
-      <div class="content" id='view'>
-      </div>
-    </div>
+        <a class="btn btn-primary btn-block btn-lg" href="index.html">FrienDo</a>
 
 
     <!-- Templates -->
@@ -37,17 +36,17 @@
         <form class="login-form" id="login-form" name = 'login-form' method="post">
           <h2>Log In</h2>
           <div class="error" style="display:none"></div>
-          <input type="text" id="login-username" placeholder="Username" name = 'username'/>
-          <input type="password" id="login-password" placeholder="Password" name = 'password' />
+          <input type="text" id="login-username" placeholder="Username" name = 'username'/><br />
+          <input type="password" id="login-password" placeholder="Password" name = 'password' /><br />
           <input type='submit' value='Log In' id='login-submit'/>
         </form>
 
         <form class="signup-form" id="signup-form" name = 'signup-form' method="post">
           <h2>Sign Up</h2>
           <div class="error" style="display:none"></div>
-          <input type="text" id="signup-username" placeholder="Username"  name = 'username'/>
-          <input type="email" id="signup-email" placeholder="E-mail"  name = 'email'/>
-          <input type="password" id="signup-password" placeholder="Create a Password"  name = 'password'/>
+          <input type="text" id="signup-username" placeholder="Username"  name = 'username'/><br />
+          <input type="email" id="signup-email" placeholder="E-mail"  name = 'email'/><br />
+          <input type="password" id="signup-password" placeholder="Create a Password"  name = 'password'/><br />
           <input type='submit' value='Sign Up' id='signup-submit'/>
         </form>
       </div>

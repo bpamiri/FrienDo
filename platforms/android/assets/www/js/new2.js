@@ -30,43 +30,148 @@ employees.each(function(employee) {
 function all_broad()
 {
 	Parse.initialize("FVpie19EZBySUXoKGLZn8wHD3powe0b6LiHSJRNE", "ze72Ly718Zhw39qLU0RJy2qq04Jhyw0zsACCCWAw");
-	var query = new Parse.Query("Broadcast");
-	var user=localStorage.getItem('username');
-	//query.equalTo("User",user);
-	var dlist = [];
-	var ulist = [];
-	var mlist = [];
-	query.find({success: function(results)
-			{
-			for(var i = 0; i < results.length; i++)
-			{
-			mlist = (results[i]['_serverData']['Message']);
-			ulist = (results[i]['_serverData']['User']);
-			dlist = (results[i]['_serverData']['Description']);
-			newdiv.innerHTML += "<li><b>" + mlist + "</b></li>" + dlist + "<br /> - '" + ulist + "'";
-			} 
-			}
-			});
 
-	var newdiv = document.getElementById('blist');
-	for(var i=0; i < mlist.length; i++) 
-	{
-		newdiv.innerHTML += "<li>" + mlist[i] + "</li>";
+	var query1=new Parse.Query("Friends");
+	var user=localStorage.getItem('username');
+	var eemail;
+	var query3=new Parse.Query("Users");
+	query3.equalTo("Name",user);
+	//async:false;
+	query3.find({success: function(results)
+		{
+			eemail=results[0]['_serverData']['email'];
+			console.log(eemail);
+			first(eemail);
+		}
+	});
+
+
+
+	function first(eemail){
+
+
+	console.log(eemail);
+	var userbroad=[];
+	query1.find({success: function(results)
+		{
+			for(var i=0;i<results.length;i++)
+			{
+				var abc = results[i]['_serverData']['emails'];
+				console.log(abc);
+				if(abc.indexOf(eemail) != -1)
+					userbroad.push(results[i]['_serverData']['user']);
+			}
+			console.log(userbroad);
+			userbroad.push(user);
+			var uniqueNames = [];
+			$.each(userbroad, function(i, el){
+    		if($.inArray(el, uniqueNames) === -1)
+    			 uniqueNames.push(el);
+			});
+			second(uniqueNames);
+		}
+	});
+
 	}
+
+
+	function second(userbroad){
+		console.log(userbroad);
+		var dlist = [];
+		var ulist = [];
+		var mlist = [];
+		for(var k=0;k<userbroad.length;k++)
+		{
+			var query = new Parse.Query("Broadcast");
+			query.equalTo("User",userbroad[k]);
+			var newdiv = document.getElementById('blist');
+		//query.equalTo("User",user);
+			query.find({success: function(results)
+				{
+					for(var i = 0; i < results.length; i++)
+					{
+						mlist = (results[i]['_serverData']['Message']);
+						ulist = (results[i]['_serverData']['User']);
+						dlist = (results[i]['_serverData']['Description']);
+						newdiv.innerHTML += "<li><b>" + mlist + "</b></li>" + dlist + "<br /> - '" + ulist + "'";
+						//console.log(mlist[1]);
+						//console.log(mlist.length);
+					}
+
+					/*for(var i=0; i < mlist.length; i++) 
+					{
+						newdiv.innerHTML += "<li>" + mlist[i] + "</li>";
+					} */
+				}
+			});
+		}
+
+    }
+	
+
+    
 }
 
 function all_todo()
 {
 	Parse.initialize("FVpie19EZBySUXoKGLZn8wHD3powe0b6LiHSJRNE", "ze72Ly718Zhw39qLU0RJy2qq04Jhyw0zsACCCWAw");
-	var query = new Parse.Query("Todo");
+	
+	var query1=new Parse.Query("TodoFriends");
 	var user=localStorage.getItem('username');
-	query.equalTo("User",user);
-	var dlist = [];
-	var ulist = [];
-	var mlist = [];
-	var list = [];
-	var newdiv = document.getElementById('blist-todo');
-	query.find({success: function(results)
+
+	var eemail;
+	var query3=new Parse.Query("Users");
+	query3.equalTo("Name",user);
+	//async:false;
+	query3.find({success: function(results)
+		{
+			eemail=results[0]['_serverData']['email'];
+			console.log(eemail);
+			first(eemail);
+		}
+	});
+
+	function first(eemail){
+
+
+	console.log(eemail);
+	var usertodo=[];
+	query1.find({success: function(results)
+		{
+			for(var i=0;i<results.length;i++)
+			{
+				var abc = results[i]['_serverData']['email'];
+				console.log(abc);
+				if(abc.indexOf(eemail) != -1)
+					usertodo.push(results[i]['_serverData']['Name']);
+			}
+			console.log(usertodo);
+			usertodo.push(user);
+			var uniqueNames = [];
+			$.each(usertodo, function(i, el){
+    		if($.inArray(el, uniqueNames) === -1)
+    			 uniqueNames.push(el);
+			});
+			second(uniqueNames);
+			console.log(usertodo);
+		}
+	});
+
+	}
+
+	function second(usertodo){
+		console.log(usertodo);
+		var dlist = [];
+		var ulist = [];
+		var mlist = [];
+		var list = [];
+		for(var k=0;k<usertodo.length;k++)
+		{
+			var query = new Parse.Query("Todo");
+			query.equalTo("User",usertodo[k]);
+			var newdiv = document.getElementById('blist-todo');
+		//query.equalTo("User",user);
+			query.find({success: function(results)
 			{
 			//console.log(results);
 			for(var i = 0; i < results.length; i++)
@@ -85,14 +190,20 @@ function all_todo()
 			}
 			}
 			});
+		}
+
+    }
+	
+	
+	
 	//console.log(list);
 
 	//var list = [];
-	for(var i=0; i < ulist.length; i++) 
+/*	for(var i=0; i < ulist.length; i++) 
 	{
 		//  list.push(ulist[i]);
 	}
-	//console.log(list);
+*/	//console.log(list);
 }
 
 function todo_validate()

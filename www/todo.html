@@ -2,11 +2,8 @@
 	
 		<head>
 			<script src="js/jquery.min.js"></script>
-			<link href="css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
-    <script src="js/underscore-1.1.6.js"></script>
-    <script src="js/parse.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/new1.js"></script>
+			<link href="css/bootstrap.css" media="all" rel="stylesheet" type="text/css"/>
+
 			<script type="text/javascript">
 
 			array=["bomm","sadsaasd"];
@@ -40,33 +37,40 @@ function send_todo()
       promisesPhase1.push(employee.save());
   });
 
+  alert("Item Added");
+  location.reload('todo.html');
+
+
 }
 			</script>
 			
 		</head>
 	<body>
 
-<div id ='n2b2' style='background: gray; padding: 10px; margin-bottom: 40px;'>
-<a href="todo.html">todo</a>
-<a href="view_todo.html">All todo</a>
-<a href="All_broad.html">All_broad</a>
-<a href="broadcast.html">broadcast</a>
-</div>
+    <style type="text/css">
+body
+{
+background-color: #E4E4E4;
+}
+</style>
+
+<a class="btn btn-primary btn-block btn-lg" href="submit.html">Home</a>
 		
-		<h2>Create a todo item</h2>
+		<h4><b>Add a To-Do Item</b></h4>
 		<script type="text/javascript">
 			$( document ).ready(function() {
     $("#todo-form").submit(function(e){
       e.preventDefault();
       send_todo();
-    //window.location.assign('todo.html');
+      //window.location.assign('todo.html');
     });
     });
+
 			</script>
 	<form id="todo-form" class="todo-form" >
 <div class='form-group'>
 		<input type="text" id="textfield" name="ttext">
-		<input type="submit" value="Create Todo List" onclick="submitted()" >
+		<input type="submit" value="Add Item" onclick="submitted()" >
 </div>	</form>
 
 	
@@ -133,5 +137,30 @@ function send_todo()
 
     </script>
 
+<hr />
+
+
+<form method = 'post' name = 'todo-list' id = 'todo-list'>
+<div class='form-group'>
+
+  <table class='table table-condensed'>
+  </table>
+
+
+<input type = 'submit' value = 'checkout' />
+</form>
+
+    <script>
+$( document ).ready(function() {
+    all_todo();
+    });
+</script>
+
+
+    <script src="js/underscore-1.1.6.js"></script>
+    <script src="js/parse.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/new1.js"></script>
+    <script src="js/new2.js"></script>
 </body>
 </html>
